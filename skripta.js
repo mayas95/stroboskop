@@ -2,18 +2,31 @@ window.addEventListener('load', function() {
 	//stran nalozena
 	
 	//Dodaj novo barvo
+	
 	var dodajBarvo = function(event) {
 		var input = document.createElement('button');
         var picker = new jscolor(input);
         picker.fromRGB(Math.floor(Math.random()*255), Math.floor(Math.random()*255), Math.floor(Math.random()*255))
         document.getElementById("barve").appendChild(input);
+  
 	}
 	
 	document.querySelector("#novaBarva") 
 		.addEventListener('click', dodajBarvo);
 		
 	//Odstrani barve
+	var odstraniBarve = function(event){
+		var el = document.getElementById("barve");
+		
+		while(el.firstChild){
+			el.removeChild(el.firstChild); // ne zbrisemo el, ampak njegov first child in v naslednji iteraciji
+		}								// se bo el.FirstChild prenastavu na slednji element
+
+	}
 	
+	document.querySelector("#odstraniBarve") 
+		.addEventListener('click', odstraniBarve);
+		
 	//Stroboskop
 	var vrednosti = [];
 	var minCas = 0;
