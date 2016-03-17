@@ -29,10 +29,12 @@ window.addEventListener('load', function() {
 		
 	//Stroboskop
 	var vrednosti = [];
-	var minCas = 0;
-	var maxCas = 0;
+	var minCas = parseInt(document.getElementById("min").value);
+	var maxCas = parseInt(document.getElementById("max").value);
 	var ustavi = false;
 	
+//	var novId;
+//	var timeout;
 	var spremeniBarvo = function(id) {
 		document.getElementById("stroboskop").style.backgroundColor = "#"+vrednosti[id];
 
