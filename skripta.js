@@ -29,8 +29,8 @@ window.addEventListener('load', function() {
 		
 	//Stroboskop
 	var vrednosti = [];
-	var minCas = parseInt(document.getElementById("min").value);
-	var maxCas = parseInt(document.getElementById("max").value);
+	var minCas = 0;
+	var maxCas = 0;
 	var ustavi = false;
 	
 //	var novId;
@@ -41,8 +41,8 @@ window.addEventListener('load', function() {
 		if (ustavi) {
 			ustavi = false;
 		} else {
-			novId = (id+1) % vrednosti.length;
-			timeout = Math.floor((Math.random() * (maxCas-minCas)) + minCas);
+			var	novId = (id+1) % vrednosti.length;
+			var timeout = Math.floor((Math.random() * (maxCas-minCas)) + minCas);
 			setTimeout(function() {spremeniBarvo(novId)} , timeout);
 		}		
 	}
@@ -65,8 +65,8 @@ window.addEventListener('load', function() {
 			vrednosti.push(barva.innerHTML);
 		}
 		
-		minCas = 1000;
-		maxCas = 1000;
+		minCas = parseInt(document.getElementById("min").value);
+		maxCas = parseInt(document.getElementById("max").value);
 		spremeniBarvo(0);
 		
 		var start = document.querySelector("#start");
